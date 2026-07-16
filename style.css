@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, .logo {
 .section-subtitle {
   text-align: center;
   font-size: 1.1rem;
-  color: var(--text-muted);
+  color: var(--accent-soft);
   margin-bottom: 3rem;
   font-weight: 300;
 }
@@ -263,6 +263,9 @@ header {
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 3s; }
 .slide:nth-child(3) { animation-delay: 6s; }
+.slide:nth-child(4) { animation-delay: 9s; }
+.slide:nth-child(5) { animation-delay: 12s; }
+.slide:nth-child(6) { animation-delay: 15s; }
 
 @keyframes fade-slide {
   0% { opacity: 0; transform: scale(1.05); }
