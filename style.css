@@ -682,3 +682,32 @@ footer {
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
   .contact-item { flex-direction: column; align-items: flex-start; }
 }
+
+/* --- SCROLL REVEAL ANIMATION (BEST SELLERS) --- */
+
+/* 1. Define the slide-up keyframes */
+@keyframes slideUpOnScroll {
+  0% {
+    opacity: 0;
+    transform: translateY(80px); /* Starts 80px lower */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Rests at normal position */
+  }
+}
+
+/* 2. Apply the scroll-driven animation specifically to Best Seller cards */
+@supports (animation-timeline: view()) {
+  #best-sellers .product-card {
+    /* Bind the animation to the element */
+    animation: slideUpOnScroll linear both;
+    
+    /* Link the animation strictly to the scroll timeline */
+    animation-timeline: view();
+    
+    /* Control exactly when it starts and ends during scroll */
+    /* Starts fading in when it enters the viewport, finishes when it's 25% visible */
+    animation-range: entry 5% cover 25%; 
+  }
+}
