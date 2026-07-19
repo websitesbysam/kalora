@@ -561,8 +561,8 @@ header {
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   position: relative;
-  height: 500px;
-  width: 500px;
+  height: 300px;
+  width: 300px;
 }
 
 .about-img::after {
