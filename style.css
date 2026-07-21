@@ -727,25 +727,59 @@ footer {
   }
 }
 
-/* --- MOBILE LAYOUT FIX (STACK IMAGES ON TOP OF TEXT) --- */
-@media (max-width: 768px) {
-    /* 1. Change from 2 columns to 1 column on mobile so the cards have room to breathe */
-    .product-grid {
-        grid-template-columns: 1fr !important; 
-        gap: 30px !important;
-    }
+/* --- CSS-ONLY IMAGE LIGHTBOX (POP-UP) - FOOLPROOF HIDE --- */
 
-    /* 2. Strictly force the image to sit on top and the text on the bottom */
-    .product-card {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100%;
-    }
+.lightbox {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(29, 75, 111, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  
+  /* Strictly hide it from the website */
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important; 
+  
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  cursor: zoom-out !important;
+}
 
-    /* 3. Ensure the image takes up the correct width */
-    .product-img {
-        width: 100% !important;
-        margin-bottom: 15px !important;
-    }
+/* Only show when the image is clicked (URL matches the ID) */
+.lightbox:target {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* The enlarged image styling */
+.lightbox img {
+  max-width: 90vw !important;
+  max-height: 85vh !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5) !important;
+  transform: scale(0.9) !important;
+  transition: transform 0.4s ease !important;
+}
+
+.lightbox:target img {
+  transform: scale(1) !important;
+}
+
+.lightbox-close {
+  position: absolute !important;
+  top: 30px !important;
+  right: 40px !important;
+  color: #fff !important;
+  font-size: 3.5rem !important;
+  font-weight: 300 !important;
+  text-decoration: none !important;
 }
