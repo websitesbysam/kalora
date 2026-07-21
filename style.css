@@ -726,3 +726,26 @@ footer {
     animation-range: entry 5% cover 25%; 
   }
 }
+
+/* --- MOBILE LAYOUT FIX (STACK IMAGES ON TOP OF TEXT) --- */
+@media (max-width: 768px) {
+    /* 1. Change from 2 columns to 1 column on mobile so the cards have room to breathe */
+    .product-grid {
+        grid-template-columns: 1fr !important; 
+        gap: 30px !important;
+    }
+
+    /* 2. Strictly force the image to sit on top and the text on the bottom */
+    .product-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100%;
+    }
+
+    /* 3. Ensure the image takes up the correct width */
+    .product-img {
+        width: 100% !important;
+        margin-bottom: 15px !important;
+    }
+}
